@@ -395,7 +395,7 @@ trait Namers { self: AnalyzerPlugins =>
               // if we do ban them, we might get spurious compilation errors from non-existent members that could've been generated
               assert(!currentRun.compiles(mann), mann)
               val companion =
-                if (tree.isInstanceOf[ClassDef] || tree.isInstanceOf[TypeDef]) patchedCompanionSymbolOf(sym, context)
+                if (maybeExpandee.isInstanceOf[ClassDef] || maybeExpandee.isInstanceOf[TypeDef]) patchedCompanionSymbolOf(sym, context)
                 else NoSymbol
               val companionSource =
                 if (!isWeak(companion)) attachedSource(companion) else EmptyTree
