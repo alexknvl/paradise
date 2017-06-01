@@ -170,7 +170,7 @@ object version {
       //     val nextMajor = currMajor + 1
       //     s"$s_currEpoch.$nextMajor.0"
       // }
-      "3.0.0"
+      "3.0.0-alex"
     }
     val preReleaseSuffix = {
       val gitDescribeSuffix = {
@@ -183,6 +183,6 @@ object version {
       if (os.git.isStable()) gitDescribeSuffix
       else gitDescribeSuffix + "." + os.time.stamp
     }
-    nextStableVersion + "-" + preReleaseSuffix
+    nextStableVersion // + "-" + preReleaseSuffix
   }
 }
